@@ -3,79 +3,79 @@
 #include <math.h>
 int main()
 {
-	float x, y;//ปรกาศตัวแปรสำหรับ input
-	float counted_num;//ประกาศตัวแปรที่ไว้นับจำนวนเลขระหว่างค่า x และ y
+	float x, y;//for input
+	float counted_num;
 	printf("insert number 1 : ");
-	scanf("%f", &x);//รับค่าตัวแปร x
+	scanf("%f", &x);
 	printf("insert number 2 : ");
-	scanf("%f", &y);//รับค่าตัวแปร y
+	scanf("%f", &y);
 	if (x < y)
 	{
-		float average;//ประกาศตัวแปรสำหรับค่าเฉลี่ย
-		int i, z = 0;//ประกาศตัวแปร i เพื่อใช้รันค่าลูป และตัวแปร z เพื่อใช้รวมค่าของเลขทุกเลขระหว่าง x และ y
+		float average;
+		int i, z = 0;
 		for (i = x; i <= y; i++)
 		{
-			z = z + i;//หาผลรวมเลขระหว่างค่า x และ y
-			printf("%d ", i);//แสดงค่า ตัวเลขทั้งหมดที่อยู่ระหว่ง x และ y
+			z = z + i;
+			printf("%d ", i);
 		}
-		counted_num = i - x;// จำนวนของเลขที่อนยู่ระหว่างเลข x และ y
-		average = z / counted_num;//หาค่าเฉลี่ย
+		counted_num = i - x;
+		average = z / counted_num;
 		printf("\nAverage = %.1f", average);
 		
-		//ลูปสำหรับ s.d  *********
-			float i_2;//ประกาศตัวแปรไว้รันในลูป
+		//Loop for SD value
+			float i_2;
 			float pow1;
-			float pow2=0;//ประกาศตัวแปรผลรวมเลขยกกำลัง
+			float pow2=0;
 			for (i_2 = x; i_2 <= y; i_2++)
 				{	
-				pow1=pow(i_2-average, 2);//นำข้อมูลตั้งต้นที่ได้มาแต่ละค่าลบด้วยค่าเฉลี่ยแล้วยกกำลังสอง
-				pow2 = pow2 + pow1;//นำตัวแต่ละตัวที่ยกกำลังเสร็จแล้วบวกกันไปเรื่อยๆ
+				pow1=pow(i_2-average, 2);
+				pow2 = pow2 + pow1;
 				}
-			float after_pow_1, after_pow_2;//ตั้งตัวแปรสำหรับค่า s.d เพิ่มเติม
-			after_pow_1 = pow2 / (counted_num - 1);//นำค่าที่ได้(pow2) ไปหารจำนวนข้อมูลที่รับมาลบด้วย 1
-			after_pow_2 = sqrt(after_pow_1);//นำค่าที่ได้(after_pow_1) ไปหาสแควรูท
+			float after_pow_1, after_pow_2;
+			after_pow_1 = pow2 / (counted_num - 1);
+			after_pow_2 = sqrt(after_pow_1);
 			printf("\nSD = %.2f", after_pow_2);
 	}
 	if (x > y)
 	{
 		
-		float average;//ประกาศตัวแปรสำหรับค่าเฉลี่ย
-		int i, z = 0;//ประกาศตัวแปร i เพื่อใช้รันค่าลูป และตัวแปร z เพื่อใช้รวมค่าของเลขทุกเลขระหว่าง x และ y
-		//สำหรับโชว์เลข
+		float average;
+		int i, z = 0;
+		//Loop for show number 
 		for (i = x; i >= y; i--)
 		{
-			printf("%d ", i);//แสดงค่า ตัวเลขทั้งหมดที่อยู่ระหว่ง x และ y
+			printf("%d ", i);
 		}
 		for (i = y; i <= x; i++)
 		{
-			z = z + i;//หาผลรวมเลขระหว่างค่า x และ y
+			z = z + i;
 		}
-		counted_num = i - y;// จำนวนของเลขที่อนยู่ระหว่างเลข x และ y
-		average = z / counted_num;//หาค่าเฉลี่ย
+		counted_num = i - y;
+		average = z / counted_num;
 		printf("\nAverage = %.1f", average);
 
-		//ลูปสำหรับ s.d  *********
-		float i_2;//ประกาศตัวแปรไว้รันในลูป
-		float pow1;//ประกาศตัวแปร
-		float pow2 = 0;//ประกาศตัวแปรผลรวมเลขยกกำลัง
+		//Loop for SD
+		float i_2;
+		float pow1;
+		float pow2 = 0;
 		for (i_2 = y; i_2 <= x; i_2++)
 		{
-			pow1 = pow(i_2 - average, 2);//นำข้อมูลตั้งต้นที่ได้มาแต่ละค่าลบด้วยค่าเฉลี่ยแล้วยกกำลังสอง
-			pow2 = pow2 + pow1;//นำตัวแต่ละตัวที่ยกกำลังเสร็จแล้วบวกกันไปเรื่อยๆ
+			pow1 = pow(i_2 - average, 2);
+			pow2 = pow2 + pow1;
 		}
-		float after_pow_1, after_pow_2;//ตั้งตัวแปรสำหรับค่า s.d เพิ่มเติม
-		after_pow_1 = pow2 / (counted_num - 1);//นำค่าที่ได้(pow2) ไปหารจำนวนข้อมูลที่รับมาลบด้วย 1
-		after_pow_2 = sqrt(after_pow_1);//นำค่าที่ได้(after_pow_1) ไปหาสแควรูท
+		float after_pow_1, after_pow_2;
+		after_pow_1 = pow2 / (counted_num - 1);
+		after_pow_2 = sqrt(after_pow_1);
 		printf("\nSD = %.2f", after_pow_2);
 	}
-	//กรณีที่เลข รnput สองค่าเท่ากัน
+	//In case of X==y
 	if (x == y)
 	{
 		printf("%.0f %.0f", x,y);
 		printf("\nAverage = %.0f", (x + y) / 2);
 		printf("\nSD = 0");
 	}
-
+	return 0;
 	
 
 }
